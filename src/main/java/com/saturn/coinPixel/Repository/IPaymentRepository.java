@@ -9,4 +9,5 @@ import java.math.BigDecimal;
 
 public interface IPaymentRepository extends JpaRepository<PaymentEntity, Long> {
     Page<PaymentEntity> findByValuePayment(BigDecimal value, Pageable pageable);
+    Page<PaymentEntity> findAll(Pageable pageable);
 }

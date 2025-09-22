@@ -41,6 +41,7 @@ public class PaymentService{
         old.setValuePayment(dto.getValuePayment());
         old.setTypePayment(dto.getTypePayment());
         old.setDatePayment(dto.getDatePayment());
+        old.setUserPayer(dto.getUserPayer());
         return  repository.save(old);
     }
 
@@ -49,13 +50,17 @@ public class PaymentService{
         repository.delete(del);
     }
 
+    public Page<PaymentRespDTO> findAll(Pageable pageable){
+        return repository.findAll(pageable).map(mapper::toDto);
+    }
+
     public PaymentEntity findById(Long id){
         return repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Pagamento nao encontrado para esse ID: " + id));
     }
 
-    public Page<PaymentEntity> findByValue(BigDecimal value, Pageable pageable){
-            return repository.findByValuePayment(value, pageable);
+    public Page<PaymentRespDTO> findByValue(BigDecimal value, Pageable pageable){
+            return repository.findByValuePayment(value, pageable).map(mapper::toDto);
     }
 
 }

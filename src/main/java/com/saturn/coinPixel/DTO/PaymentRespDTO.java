@@ -17,4 +17,5 @@ public class PaymentRespDTO {
     private BigDecimal valuePayment;
     private String typePayment;
     private LocalDateTime datePayment;
+    private Long UserPayer;
 }
