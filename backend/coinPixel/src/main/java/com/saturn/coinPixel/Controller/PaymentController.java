@@ -2,13 +2,9 @@ package com.saturn.coinPixel.Controller;
 
 import com.saturn.coinPixel.DTO.PaymentReqDTO;
 import com.saturn.coinPixel.DTO.PaymentRespDTO;
-import com.saturn.coinPixel.DTO.UserReqDTO;
 import com.saturn.coinPixel.Mapper.PaymentMapper;
 import com.saturn.coinPixel.Service.PaymentService;
-import com.saturn.coinPixel.Service.UserService;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -31,8 +27,8 @@ public class PaymentController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PaymentRespDTO> updatePayment(Long id, @RequestBody PaymentReqDTO dto){
-        var request = service.UpdatePaymente(id,dto);
+    public ResponseEntity<PaymentRespDTO> updatePayment(@PathVariable Long id, @RequestBody PaymentReqDTO dto){
+        var request = service.UpdatePayment(id,dto);
         var response = mapper.toDto(request);
         return ResponseEntity.ok(response);
     }

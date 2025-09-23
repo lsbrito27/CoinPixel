@@ -35,7 +35,7 @@ public class PaymentService{
         return repository.save(sav);
     }
 
-    public PaymentEntity UpdatePaymente(Long id, PaymentReqDTO dto){
+    public PaymentEntity UpdatePayment(Long id, PaymentReqDTO dto){
         PaymentEntity old = findById(id);
         old.setDescPayment(dto.getDescPayment());
         old.setValuePayment(dto.getValuePayment());

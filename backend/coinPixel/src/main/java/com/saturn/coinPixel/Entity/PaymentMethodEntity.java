@@ -1,9 +1,14 @@
 package com.saturn.coinPixel.Entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "payment_method")
+@Builder
+@Getter @Setter
 public class PaymentMethodEntity {
 
     @Id
